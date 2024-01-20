@@ -1,0 +1,84 @@
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import*
+
+def swich_screen():
+    if btn_answer.text()=="Віповісти":
+        qwestion_grop.hide()
+        answer_group.show()
+        btn_answer.setText("Наступне питання")
+    else:
+        qwestion_grop.show()
+        answer_group.hide()
+        btn_answer.setText("Відповісти")
+
+btn_menu=QPushButton("Меню")
+btn_sleep=QPushButton("Відпочити")
+btn_answer=QPushButton("Відповісти")
+timer.setValue(30)
+timer_text=QLaber("хвелин")
+
+text_qwestion=QLaber("Питання")
+right_answer=QLaber("Відповіть")
+text_reult=Qlaber("Результат")
+
+rbtn1=QRadioButton("1")
+rbtn2=QRadioButton("2")
+rbtn3=QRadioButton("3")
+rbtn4=QRadioButton("4")
+
+radiogrup=QButtonGroup()
+radiogrup.addButton(rbtn1)
+radiogrup.addButton(rbtn2)
+radiogrup.addButton(rbtn3)
+radiogrup.addButton(rbtn4)
+
+qwestion_grop=QGroupBox("Варіанти відповідей")
+answer_group=QGroupBox("Результати тестів")
+
+line=QVBoxLayot()
+line1=QVBoxLayot()
+line2=QVBoxLayot()
+line3=QVBoxLayot()
+line3_q=QVBoxLayot()
+line3_q=QVBoxLayot()
+line4=QVBoxLayot()
+
+line_v1=QVBoxLayot()
+line_v2=QVBoxLayot()
+
+line_v1.addWidget(rbtn1)
+line_v2.addWidget(rbtn2)
+line_v3.addWidget(rbtn3)
+line_v4.addWidget(rbtn4)
+
+line3_q.addLayout(line_v1)
+line3_q.addLayout(line_v2)
+
+qwestion_grop.setLayot(line3_q)
+
+line3_a.addWidget(text_reult,aligment=(Qt.AlgnLeft |Qt.AlignTop))
+line3_a.addWidget(text_answer,aligment=Qt.AlignCenter)
+answer_group.setLayot(line3_a)
+answer_group.hide()
+line1.addWidget(btn_menu)
+line1.addStretch(1)
+line1.addWidget(btn_sleep)
+line1.addWidget(timer)
+line1.addWidget(timer_text)
+
+line2.addWidget(text_qwestion,aligment=Qt.AlignCenter)
+line3.addWidget(qwestion_grop)
+line4.addStretch(1)
+line4.addWidget(btn_answer,stretch=2)
+line4.addStretch(1)
+
+
+line.addLayout(line1,stretch=1)
+line.addLayout(line1,stretch=2)
+line.addLayout(line1,stretch=6)
+line.addStretch(1)
+line.addLayout(line1,stretch=3)
+line.addStretch(1)
+
+
+
